@@ -40,18 +40,25 @@
                             <label for="categories" class="block text-sm font-medium text-gray-700">
                                 Categories
                             </label>
-                            <select name="categories[]" id="categories"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                multiple required>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ in_array($category->id, old('categories', [])) ? 'selected' : '' }}>
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            @if (count($categories) > 0)
+                                <select name="categories[]" id="categories"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                    multiple required>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}"
+                                            {{ in_array($category->id, old('categories', [])) ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            @else
+                                <p class="text-red-500 text-xs mt-1">
+                                    No Category added.
+                                </p>
+                            @endif
+
                             @error('categories')
-                                <p class="text-ted-500 text-xs mt-1">
+                                <p class="text-red-500 text-xs mt-1">
                                     {{ $message }}
                                 </p>
                             @enderror
@@ -76,7 +83,9 @@
                                 <input type="checkbox" name="is_published"
                                     class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                     {{ old('is_publisehd') ? 'checked' : '' }}>
-                                span.ml-2 <text-sm class="text-gray-600">Publish Immediately</text-sm>
+                                <span class="ml-2">
+                                    <text-sm class="text-gray-600">Publish Immediately</text-sm>
+                                </span>
                             </label>
                         </div>
                         {{-- Is Published end --}}

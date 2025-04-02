@@ -1,5 +1,5 @@
 <x-admin-layout>
-    <x-slot class="header">
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800">
             {{ __('Posts') }}
         </h2>
@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm mb-6">
+            <div class="bg-white overflow-hidden shadow-sm mb-6 flex justify-between w-full items-center p-3 rounded-md">
                 <h3 class="text-lg font-semibold">
                     All Posts
                 </h3>

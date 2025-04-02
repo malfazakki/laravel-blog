@@ -50,7 +50,7 @@
 
                             <li class="mb-2">
                                 <a href="{{ route('admin.categories.index') }}"
-                                    class="block p-2 hover:bg-gray-100 rounded">Category</a>
+                                    class="block p-2 hover:bg-gray-100 rounded">Categories</a>
                             </li>
                         </ul>
                     </nav>
@@ -72,7 +72,7 @@
                     </div>
                 @endif
 
-                {{ $slot ?? '' }}
+                {{ $slot }}
             </main>
             {{-- Page Content end --}}
         </div>
