@@ -30,49 +30,53 @@
         @endif
         {{-- Page Heading end --}}
 
-        {{-- Sidebar --}}
+        {{-- Sidebar and Content Container --}}
         <div class="flex">
-            <div class="w-64 bg-white shadow h-screen">
-                <div class="p-4">
-                    <h2>Admin Panel</h2>
-                    <nav class="mt-4">
-                        <ul>
-                            <li class="mb-2">
-                                <a href="{{ route('dashboard') }}"
-                                    class="block p-2 hover:bg-gray-100 rounded">Dashboard</a>
-                            </li>
+            {{-- Sidebar --}}
+            <div class="flex">
+                <div class="w-64 bg-white shadow h-screen">
+                    <div class="p-4">
+                        <h2>Admin Panel</h2>
+                        <nav class="mt-4">
+                            <ul>
+                                <li class="mb-2">
+                                    <a href="{{ route('dashboard') }}"
+                                        class="block p-2 hover:bg-gray-100 rounded">Dashboard</a>
+                                </li>
 
-                            <li class="mb-2">
-                                <a href="{{ route('admin.posts.index') }}"
-                                    class="block p-2 hover:bg-gray-100 rounded">Posts</a>
-                            </li>
+                                <li class="mb-2">
+                                    <a href="{{ route('admin.posts.index') }}"
+                                        class="block p-2 hover:bg-gray-100 rounded">Posts</a>
+                                </li>
 
-                            <li class="mb-2">
-                                <a href="{{ route('admin.categories.index') }}"
-                                    class="block p-2 hover:bg-gray-100 rounded">Category</a>
-                            </li>
-                        </ul>
-                    </nav>
+                                <li class="mb-2">
+                                    <a href="{{ route('admin.categories.index') }}"
+                                        class="block p-2 hover:bg-gray-100 rounded">Category</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
+            {{-- Sidebar end --}}
+
+            {{-- Page Content --}}
+            <main class="flex-1 p-6">
+                @if (session('success'))
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                        {{ session('error') }}
+                    </div>
+                @endif
+            </main>
+            {{-- Page Content end --}}
         </div>
-        {{-- Sidebar end --}}
-
-        {{-- Page Content --}}
-        <main class="flex-1 p-6">
-            @if (session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if (session('error'))
-                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-                    {{ session('error') }}
-                </div>
-            @endif
-        </main>
-        {{-- Page Content end --}}
+        {{-- Sidebar and Content Container end --}}
     </div>
 </body>
 
