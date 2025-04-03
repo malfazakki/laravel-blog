@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', 'blog');
+
 Route::get('/', [BlogController::class, 'index'])->name('home');
 Route::get('/post/{slug}', [BlogController::class, 'show'])->name('blog.post');
 Route::get('/category/${slug}', [BlogController::class, 'category'])->name('blog.category');
