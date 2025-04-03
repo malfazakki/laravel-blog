@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="max-w-7-xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {{-- Header --}}
         <div class="text-ctner mb-8">
             <h1 class="text-3xl font-bold text-gray-900">
@@ -44,7 +44,7 @@
                         </p>
                         <div class="flex flex-wrap mb-4">
                             @foreach ($post->categories as $category)
-                                <a href="{{ route('blog.category') }}"
+                                <a href="{{ route('blog.category', $category->slug) }}"
                                     class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                                     {{ $category->name }}
                                 </a>
@@ -67,7 +67,7 @@
         </div>
         {{-- Posts end --}}
 
-        <div class="">
+        <div class="mt-10">
             {{ $posts->links() }}
         </div>
     </div>
